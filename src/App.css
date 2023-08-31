@@ -167,7 +167,7 @@ button:hover {
 }
 
 .comic-name {
-  width: auto;
+  width: 100%;
   font-size: 10px;
   color: lightgray;
   height: 3em;
@@ -230,3 +230,39 @@ button:hover {
 .flip-zone:hover .hide-on-hover {
   display: none;
 }
+
+/* React - paginate */
+ul.react-paginate {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0 5rem;
+}
+
+ul.react-paginate li a {
+  border-radius: 7px;
+  padding: 0.1rem 1rem;
+  border: red 1px solid;
+  cursor: pointer;
+}
+ul.react-paginate li.previous a,
+ul.react-paginate li.next a,
+ul.react-paginate li.break a {
+  border-color: transparent;
+}
+ul.react-paginate li.selected a {
+  background-color: red;
+  border-color: transparent;
+  color: white;
+  min-width: 32px;
+}
+ul.react-paginate li.disabled a {
+  color: grey;
+}
+ul.react-paginate li.disable,
+ul.react-paginate li.disabled a {
+  cursor: default;
+}
+/* React - paginate */

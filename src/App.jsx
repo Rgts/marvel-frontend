@@ -12,16 +12,22 @@ import "./App.css";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || null);
+  // const [search, setSearch] = useState("spi");
 
   return (
     <>
       <Router>
-        <Header token={token} setToken={setToken} />
+        {/* <Header
+          token={token}
+          setToken={setToken}
+          // search={search}
+          // setSearch={setSearch}
+        /> */}
 
         <Routes>
           <Route path="/" element={<Characters />} />
-          <Route path="comics/:id" element={<ComicsByCharacter />} />
-          <Route path="comics" element={<Comics />} />
+          <Route path="/comics/:id" element={<ComicsByCharacter />} />
+          <Route path="/comics" element={<Comics />} />
 
           {/* <Route path="/offer/:id" element={<Offer />} />
           <Route path="/signup" element={<Signup setToken={setToken} />} />

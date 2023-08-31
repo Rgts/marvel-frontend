@@ -3,11 +3,21 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import ReactPaginate from "react-paginate";
+import Header from "../components/Header";
 
 const ComicsByCharacter = () => {
   const { id } = useParams();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [search, setSearch] = useState("");
+
+  //React paginate--
+  const [currentPage, setCurrentPage] = useState(0);
+  let itemsPerPage = 25;
+  let startIndex = currentPage * itemsPerPage;
+  let endIndex = startIndex + itemsPerPage;
+  //React paginate--
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,9 +37,11 @@ const ComicsByCharacter = () => {
     <span>En cours de chargement</span>
   ) : (
     <>
+      <Header enableSearch={false} search={search} setSearch={setSearch} />
       <main>
         <div className="container flex flex-start-start flex-wrap flex-gap-20 padding-40-20">
-          {data.comics.map((comic) => {
+          {/* slice(,) is for pagination in React-pagination */}
+          {data.comics.slice(startIndex, endIndex).map((comic) => {
             const imgUrl =
               comic.thumbnail.path + "." + comic.thumbnail.extension;
             // console.log(comic._id);
@@ -61,6 +73,13 @@ const ComicsByCharacter = () => {
               </article>
             );
           })}
+        </div>
+        <div className="container">
+          <ReactPaginate
+            pageCount={Math.ceil(data.comics.length / itemsPerPage)}
+            onPageChange={(event) => setCurrentPage(event.selected)}
+            className="react-paginate"
+          />
         </div>
       </main>
     </>
