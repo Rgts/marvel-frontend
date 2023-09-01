@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"; //rappel
 import ReactPaginate from "react-paginate";
-import Header from "../components/Header";
+import SearchBar from "../components/SearchBar";
 
 const Characters = () => {
   const navigate = useNavigate(); // rappel
@@ -43,7 +43,7 @@ const Characters = () => {
     <span>En cours de chargement</span>
   ) : (
     <>
-      <Header enableSearch={true} search={search} setSearch={setSearch} />
+      <SearchBar search={search} setSearch={setSearch} />
 
       <main>
         <div className="container flex flex-start-start flex-wrap flex-gap-20 padding-40-20">

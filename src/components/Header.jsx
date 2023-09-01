@@ -1,30 +1,23 @@
 import marvelLogo from "../assets/images/marvel-logo.svg";
 import { useNavigate } from "react-router-dom"; //rappel
 
-const Header = ({ enableSearch, search, setSearch }) => {
+const Header = () => {
   const navigate = useNavigate(); // rappel
 
   return (
-    <header>
-      <div className="container flex flex-between-center">
+    <header className="flex flex-center-center">
+      <div className="container flex flex-between-center flex-wrap">
         <img
           className="logo"
           src={marvelLogo}
           alt="marvel-logo"
           onClick={() => navigate("/")}
         />
-        <div className="flex flex-gap-20 flex-start-start">
-          {enableSearch && (
-            <input
-              type="text"
-              value={search}
-              placeholder="Search"
-              onChange={(event) => setSearch(event.target.value)}
-            />
-          )}
+
+        <div className="button-container flex flex-gap-20 flex-start-start">
           <button onClick={() => navigate("/comics")}>Comics</button>
           <button onClick={() => navigate("/")}>Characters</button>
-          <button>Favoris</button>
+          <button>Favorites</button>
         </div>
       </div>
     </header>

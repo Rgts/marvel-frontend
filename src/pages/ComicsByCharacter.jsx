@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
-import Header from "../components/Header";
+import SearchBar from "../components/SearchBar";
 
 const ComicsByCharacter = () => {
   const { id } = useParams();
@@ -37,7 +37,7 @@ const ComicsByCharacter = () => {
     <span>En cours de chargement</span>
   ) : (
     <>
-      <Header enableSearch={false} search={search} setSearch={setSearch} />
+      {/* <SearchBar search={search} setSearch={setSearch} /> */}
       <main>
         <div className="container flex flex-start-start flex-wrap flex-gap-20 padding-40-20">
           {/* slice(,) is for pagination in React-pagination */}

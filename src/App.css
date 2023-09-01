@@ -3,7 +3,7 @@
 body * {
   font-family: "Poppins", Georgia, "Times New Roman", Times, serif;
   font-weight: 300;
-  color: lightgray;
+  color: white;
   background-color: rgb(49, 49, 49);
   perspective: 175px;
 }
@@ -17,27 +17,57 @@ h1 {
 
 header {
   height: 120px;
-  border-bottom: 1px solid #f2f2f2;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(49, 49, 49);
+  border-bottom: 2px solid #f2f2f2;
+  background-color: #ed1d24;
+}
+
+footer {
+  border-top: 2px solid #f2f2f2;
+  height: 150px;
 }
 
 header .logo {
   height: 70px;
   cursor: pointer;
 }
+footer,
+footer > div,
+footer .copyright {
+  background-color: #ed1d24;
+  /* border-top: 1px green solid; */
+  /* height: 120px; */
+}
+
+footer .logo {
+  height: 2em;
+  cursor: pointer;
+}
+
+header > div,
+header > div > div {
+  background-color: #ed1d24;
+}
 
 header button {
-  border: 1px solid lightgray;
-  border-radius: 5px;
+  border: 2px solid white;
+  border-radius: 15px;
   font-size: 18px;
+  font-weight: 150%;
+  background-color: #ed1d24;
+  color: white;
+}
+
+.search {
+  margin-top: 2vh;
+  width: 100%;
+  font-size: larger;
+  color: red;
+  border-radius: 10px;
 }
 
 main {
   margin-top: 30px;
+  /* border: 1px solid green; */
 }
 
 button:hover {
@@ -45,13 +75,19 @@ button:hover {
 }
 .container {
   width: 70vw;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: auto;
 }
 
 .flex {
   display: flex;
   flex-direction: row;
+}
+
+.flex-center-center {
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* align-content: center; */
 }
 
 .flex-start-start {
@@ -180,7 +216,7 @@ button:hover {
   /* border-left: 10px solid red;
   border-right: 10px solid red; */
   background-color: inherit;
-  position: relative;
+  position: absolute;
   /* transform: rotate(-45deg); */
   top: 50%;
   left: calc(-50% + 1.2em);
@@ -190,6 +226,33 @@ button:hover {
   /* translate: -50% 200%; */
   margin: auto auto;
 }
+
+.favorite {
+  /* font-size: 8px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  /* border: 1px solid red; */
+  padding: 2px;
+  background-color: white;
+  /* color: black; */
+  bottom: 15px;
+  left: 15px;
+  z-index: 200;
+  text-align: center;
+}
+.favorite > i {
+  background-color: transparent;
+  color: black;
+}
+
+/* .favorite:hover {
+  background-color: blue;
+} */
 
 .character-description {
   /* width: 100%; */

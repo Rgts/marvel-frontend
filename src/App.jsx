@@ -5,8 +5,8 @@ import Cookies from "js-cookie";
 import Characters from "./pages/Characters";
 import ComicsByCharacter from "./pages/ComicsByCharacter";
 import Comics from "./pages/Comics";
-
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 import "./App.css";
 
@@ -17,13 +17,10 @@ function App() {
   return (
     <>
       <Router>
-        {/* <Header
-          token={token}
-          setToken={setToken}
-          // search={search}
-          // setSearch={setSearch}
-        /> */}
-
+        <Header
+        // token={token}
+        // setToken={setToken}
+        />
         <Routes>
           <Route path="/" element={<Characters />} />
           <Route path="/comics/:id" element={<ComicsByCharacter />} />
@@ -33,8 +30,9 @@ function App() {
           <Route path="/signup" element={<Signup setToken={setToken} />} />
           <Route path="/login" element={<Login setToken={setToken} />} />
           <Route path="/publish" element={<Publish token={token} />} />
-          <Route path="/payment" element={<Payment token={token} />} /> */}
+        <Route path="/payment" element={<Payment token={token} />} /> */}
         </Routes>
+        <Footer />
       </Router>
     </>
   );
