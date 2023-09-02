@@ -16,16 +16,14 @@ const Comics = () => {
 
   //React paginate--
   const [currentPage, setCurrentPage] = useState(0);
-  let itemsPerPage = 25;
-  let startIndex = currentPage * itemsPerPage;
-  let endIndex = startIndex + itemsPerPage;
+  let itemsPerPage = 100;
   //React paginate--
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // React-pagination handles pagination, skip is not used
-        const skip = 0;
+        // When page is change on pagination, a request is done to fetch 100 new items
+        const skip = currentPage * itemsPerPage;
         const limit = 100;
         const response = await axios.get(
           `http://localhost:3000/comics?limit=${limit}&skip=${skip}&title=${search}`
@@ -33,12 +31,16 @@ const Comics = () => {
 
         setData(response.data);
         setIsLoading(false);
+        console.log(response.data.results[0].title);
+        console.log(currentPage);
+        console.log(data.count);
+        // setCurrentPage(currentPage);
       } catch (error) {
         console.log(error.response); // contrairement au error.message d'express
       }
     };
     fetchData();
-  }, [search]);
+  }, [search, currentPage]);
 
   return isLoading ? (
     <span>En cours de chargement</span>
@@ -48,7 +50,7 @@ const Comics = () => {
       <main>
         <div className="container flex flex-start-start flex-wrap flex-gap-20 padding-40-20">
           {/* .slice(,) is for pagination in React-pagination */}
-          {data.results.slice(startIndex, endIndex).map((comic) => {
+          {data.results.map((comic) => {
             const imgUrl =
               comic.thumbnail.path + "." + comic.thumbnail.extension;
             // console.log(comic._id);
@@ -57,7 +59,7 @@ const Comics = () => {
         </div>
         <div className="container">
           <ReactPaginate
-            pageCount={Math.ceil(data.results.length / itemsPerPage)}
+            pageCount={Math.ceil(data.count / itemsPerPage)}
             onPageChange={(event) => setCurrentPage(event.selected)}
             className="react-paginate"
           />
