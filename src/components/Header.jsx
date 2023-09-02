@@ -17,7 +17,7 @@ const Header = () => {
         <div className="button-container flex flex-gap-20 flex-start-start">
           <button onClick={() => navigate("/comics")}>Comics</button>
           <button onClick={() => navigate("/")}>Characters</button>
-          <button>Favorites</button>
+          <button onClick={() => navigate("/favorites")}>Favorites</button>
         </div>
       </div>
     </header>

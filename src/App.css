@@ -67,6 +67,7 @@ header button {
 
 main {
   margin-top: 30px;
+  min-height: 100vh;
   /* border: 1px solid green; */
 }
 
@@ -233,16 +234,16 @@ button:hover {
   justify-content: center;
   align-items: center;
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  /* border: 1px solid red; */
+  border: 1px solid black;
   padding: 2px;
-  background-color: white;
+  background-color: lightgray;
   /* color: black; */
-  bottom: 15px;
-  left: 15px;
-  z-index: 200;
+  bottom: 2px;
+  right: 2px;
+  z-index: 2;
   text-align: center;
 }
 .favorite > i {

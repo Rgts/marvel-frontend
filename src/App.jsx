@@ -5,6 +5,8 @@ import Cookies from "js-cookie";
 import Characters from "./pages/Characters";
 import ComicsByCharacter from "./pages/ComicsByCharacter";
 import Comics from "./pages/Comics";
+import Favorites from "./pages/Favorites";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -25,6 +27,7 @@ function App() {
           <Route path="/" element={<Characters />} />
           <Route path="/comics/:id" element={<ComicsByCharacter />} />
           <Route path="/comics" element={<Comics />} />
+          <Route path="/favorites" element={<Favorites />} />
 
           {/* <Route path="/offer/:id" element={<Offer />} />
           <Route path="/signup" element={<Signup setToken={setToken} />} />

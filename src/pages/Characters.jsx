@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"; //rappel
 import ReactPaginate from "react-paginate";
 import SearchBar from "../components/SearchBar";
-
+import CardCharacter from "../components/CardCharacter";
 const Characters = () => {
   const navigate = useNavigate(); // rappel
   const [data, setData] = useState();
@@ -40,7 +40,7 @@ const Characters = () => {
   }, [search]);
 
   return isLoading ? (
-    <span>En cours de chargement</span>
+    <main className="container">En cours de chargement</main>
   ) : (
     <>
       <SearchBar search={search} setSearch={setSearch} />
@@ -53,30 +53,11 @@ const Characters = () => {
               character.thumbnail.path + "." + character.thumbnail.extension;
             // console.log(character._id);
             return (
-              <article
+              <CardCharacter
                 key={character._id}
-                className="flip-zone"
-                onClick={() => navigate(`/comics/${character._id}`)}
-              >
-                <div className="character-card">
-                  <div className="character-name hide-on-hover">
-                    {character.name}
-                  </div>
-                  <img
-                    className="character-img hide-on-hover"
-                    src={imgUrl}
-                    alt=""
-                  />
-                  {character.description && (
-                    <div className="flip-info hide-on-hover">
-                      Flip to learn more {">>"}
-                    </div>
-                  )}
-                  <div className="character-description show-on-hover">
-                    {character.description}
-                  </div>
-                </div>
-              </article>
+                character={character}
+                favorite={"add"}
+              />
             );
           })}
         </div>
