@@ -45,7 +45,7 @@ const Characters = () => {
       <SearchBar search={search} setSearch={setSearch} />
 
       <main>
-        <div className="container flex flex-start-start flex-wrap flex-gap-20 padding-40-20">
+        <div className="container flex flex-between-start flex-wrap flex-gap-20 padding-40-20">
           {/* .slice(,) is for pagination in React-pagination */}
           {data.results.map((character) => {
             // console.log(character._id);
@@ -63,6 +63,8 @@ const Characters = () => {
             pageCount={Math.ceil(data.count / itemsPerPage)}
             onPageChange={(event) => setCurrentPage(event.selected)}
             className="react-paginate"
+            previousLabel={"<"}
+            nextLabel={">"}
           />
         </div>
       </main>

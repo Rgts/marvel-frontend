@@ -2,7 +2,7 @@ import FavoriteAdd from "./FavoriteAdd";
 import FavoriteRemove from "./FavoriteRemove";
 import { useNavigate } from "react-router-dom"; //rappel
 import marvelLogoTransparent from "../assets/images/marvel-logo-transparent.svg";
-import marvelLogoSquare from "../assets/images/marvel-logo-square.jpg";
+import marvelLogoSquare from "../assets/images/marvel-logo-square.svg";
 
 const CardCharacter = ({ character, favorite }) => {
   const navigate = useNavigate(); // rappel

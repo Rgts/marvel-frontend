@@ -58,6 +58,8 @@ const Comics = () => {
             pageCount={Math.ceil(data.count / itemsPerPage)}
             onPageChange={(event) => setCurrentPage(event.selected)}
             className="react-paginate"
+            previousLabel={"<"}
+            nextLabel={">"}
           />
         </div>
       </main>
