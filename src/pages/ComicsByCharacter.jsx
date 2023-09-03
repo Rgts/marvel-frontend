@@ -33,7 +33,7 @@ const ComicsByCharacter = () => {
     <>
       <main>
         <h1 className="container">Comics with {data.name} </h1>
-        <div className="container flex flex-start-start flex-wrap flex-gap-20 padding-40-0">
+        <div className="container flex flex-between-start flex-wrap flex-gap-20 padding-40-0">
           {data.comics.map((comic) => {
             return <CardComic key={comic._id} comic={comic} favorite={"add"} />;
           })}
