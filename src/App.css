@@ -8,17 +8,6 @@ body * {
   perspective: 175px;
 }
 
-/* To have a sticky footer */
-html,
-body {
-  height: 100%;
-}
-body > footer {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 100vh;
-}
-
 a {
   text-decoration: none;
 }
@@ -66,7 +55,7 @@ header button {
   border-radius: 15px;
   font-size: 18px;
   font-weight: 150%;
-  background-color: #ed1d24;
+  background-color: transparent;
   color: white;
 }
 
@@ -432,6 +421,10 @@ ul.react-paginate li.disabled a {
     gap: 5px;
   }
   footer {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 100vh;
+    z-index: 10;
     height: 100%;
     font-size: 11px;
   }
