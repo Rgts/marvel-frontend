@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"; //rappel
 import ReactPaginate from "react-paginate";
 import SearchBar from "../components/SearchBar";
 import CardCharacter from "../components/CardCharacter";
+
 const Characters = () => {
   const navigate = useNavigate(); // rappel
   const [data, setData] = useState();
@@ -14,16 +15,14 @@ const Characters = () => {
 
   //React paginate--
   const [currentPage, setCurrentPage] = useState(0);
-  let itemsPerPage = 25;
-  let startIndex = currentPage * itemsPerPage;
-  let endIndex = startIndex + itemsPerPage;
+  let itemsPerPage = 100;
   //React paginate--
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // React-pagination handles pagination, skip is not used
-        const skip = 0;
+        const skip = currentPage * itemsPerPage;
         const limit = 100;
         const response = await axios.get(
           `http://localhost:3000/characters?limit=${limit}&skip=${skip}&name=${search}`
@@ -37,7 +36,7 @@ const Characters = () => {
       }
     };
     fetchData();
-  }, [search]);
+  }, [search, currentPage]);
 
   return isLoading ? (
     <main className="container">En cours de chargement</main>
@@ -48,9 +47,7 @@ const Characters = () => {
       <main>
         <div className="container flex flex-start-start flex-wrap flex-gap-20 padding-40-20">
           {/* .slice(,) is for pagination in React-pagination */}
-          {data.results.slice(startIndex, endIndex).map((character) => {
-            const imgUrl =
-              character.thumbnail.path + "." + character.thumbnail.extension;
+          {data.results.map((character) => {
             // console.log(character._id);
             return (
               <CardCharacter
@@ -63,10 +60,8 @@ const Characters = () => {
         </div>
         <div className="container">
           <ReactPaginate
-            pageCount={Math.ceil(data.results.length / itemsPerPage)}
-            // onPageChange={handlePageChange}
+            pageCount={Math.ceil(data.count / itemsPerPage)}
             onPageChange={(event) => setCurrentPage(event.selected)}
-            // forcePage={currentPage}
             className="react-paginate"
           />
         </div>

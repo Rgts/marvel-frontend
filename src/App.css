@@ -60,15 +60,15 @@ header button {
 .search {
   margin-top: 2vh;
   width: 100%;
-  font-size: larger;
-  color: red;
+  font-size: 105%;
+  color: white;
   border-radius: 10px;
 }
 
 main {
   margin-top: 30px;
   min-height: 100vh;
-  /* border: 1px solid green; */
+  border: 1px solid green;
 }
 
 button:hover {
@@ -86,8 +86,8 @@ button:hover {
 }
 
 .flex-center-center {
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   /* align-content: center; */
 }
 
@@ -170,9 +170,11 @@ button:hover {
   aspect-ratio: 1;
   object-fit: cover;
   /* border: 1px solid white; */
-  border-radius: 10px;
-  padding: 2px;
+  border-radius: 10%;
+  padding: 8px;
   margin: 8px 0;
+  background-color: inherit;
+  position: top;
 }
 
 .comic-img {
@@ -249,26 +251,77 @@ button:hover {
 .favorite > i {
   background-color: transparent;
   color: black;
+  position: absolute;
 }
 
-/* .favorite:hover {
-  background-color: blue;
-} */
+.link-from-character-to-comics {
+  /* font-size: 8px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid black;
+  padding: 2px;
+  background-color: lightgray;
+  /* color: black; */
+  bottom: 2px;
+  right: 32px;
+  z-index: 2;
+  text-align: center;
+  cursor: pointer;
+}
+
+.link-from-character-to-comics > i {
+  background-color: transparent;
+  color: black;
+  position: absolute;
+}
+
+.scale-on-click {
+  transform: scale(0);
+  border: none;
+  border-radius: 50%;
+  color: black;
+  position: relative;
+  background-color: aquamarine;
+  bottom: 50%;
+  left: 50%;
+}
+
+.scale-on-click:focus {
+  animation: scale 0.5s;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 .character-description {
   /* width: 100%; */
   font-size: 11px;
-  color: lightgray;
+  font-weight: bolder;
+  color: white;
   /* height: 100%; */
   overflow-y: scroll;
   /* border: 1px solid red; */
   /* border-radius: 10px; */
-  padding: 2px;
-  margin: 10px 10px;
+  padding: 8px;
+  /* margin: 10px 10px; */
   text-align: justify;
   display: none;
-  background-color: black;
-  overflow: hidden;
+  background-color: rgb(90, 88, 88);
+  overflow: scroll;
 }
 
 .comic-description {

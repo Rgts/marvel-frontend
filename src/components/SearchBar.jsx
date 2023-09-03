@@ -5,7 +5,7 @@ const SearchBar = ({ search, setSearch }) => {
   const navigate = useNavigate(); // rappel
 
   return (
-    <div className="container">
+    <div className="container flex flex-center-center">
       <input
         className="search"
         type="text"

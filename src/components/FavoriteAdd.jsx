@@ -1,11 +1,8 @@
-const FavoriteRemove = ({ obj, storageKey }) => {
+const FavoriteAdd = ({ obj, storageKey }) => {
   //
   //
   const handleFavorite = (obj, storageKey) => {
     //
-    // To differentiate comics and characters
-    // alert(objType);
-
     // Retrieve list in local storage
     const storageList = JSON.parse(localStorage.getItem(storageKey) || "[]");
 
@@ -28,10 +25,12 @@ const FavoriteRemove = ({ obj, storageKey }) => {
   };
 
   return (
-    <div className="favorite" onClick={() => handleFavorite(obj, storageKey)}>
+    // Add and display check at click (full css)
+    <label className="favorite" onClick={() => handleFavorite(obj, storageKey)}>
       <i className="fa-regular fa-heart"></i>
-    </div>
+      <input type="button" className="scale-on-click" value="&#x2713;" />
+    </label>
   );
 };
 
-export default FavoriteRemove;
+export default FavoriteAdd;

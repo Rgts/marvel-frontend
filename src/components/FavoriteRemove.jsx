@@ -5,12 +5,6 @@ const FavoriteRemove = ({ obj, storageKey }) => {
     //
     // Retrieve list in local storage
     const storageList = JSON.parse(localStorage.getItem(storageKey) || "[]");
-
-    // // Copy object
-    // const newObj = { ...obj };
-
-    // // Check if new object is not already inside
-    // let isUnique = true;
     const newStorageList = [];
 
     for (const myobj of storageList) {
@@ -20,12 +14,16 @@ const FavoriteRemove = ({ obj, storageKey }) => {
     }
 
     localStorage.setItem(storageKey, JSON.stringify(newStorageList));
+    // Force page refresh (otherwise, pass data useState in props)
+    window.location.href = "/favorites";
   };
 
   return (
-    <div className="favorite" onClick={() => handleFavorite(obj, storageKey)}>
+    // Add and display check at click (full css)
+    <label className="favorite" onClick={() => handleFavorite(obj, storageKey)}>
       <i className="fa-regular fa-trash-can"></i>
-    </div>
+      <input type="button" className="scale-on-click" value="&#x2714;" />
+    </label>
   );
 };
 

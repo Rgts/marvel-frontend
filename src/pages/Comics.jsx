@@ -43,17 +43,13 @@ const Comics = () => {
   }, [search, currentPage]);
 
   return isLoading ? (
-    <span>En cours de chargement</span>
+    <main className="container">En cours de chargement</main>
   ) : (
     <>
       <SearchBar search={search} setSearch={setSearch} />
       <main>
         <div className="container flex flex-start-start flex-wrap flex-gap-20 padding-40-20">
-          {/* .slice(,) is for pagination in React-pagination */}
           {data.results.map((comic) => {
-            const imgUrl =
-              comic.thumbnail.path + "." + comic.thumbnail.extension;
-            // console.log(comic._id);
             return <CardComic key={comic._id} comic={comic} favorite={"add"} />;
           })}
         </div>
