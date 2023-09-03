@@ -26,7 +26,7 @@ const Comics = () => {
         const skip = currentPage * itemsPerPage;
         const limit = 100;
         const response = await axios.get(
-          `http://localhost:3000/comics?limit=${limit}&skip=${skip}&title=${search}`
+          `https://site--marvel-backend--v2szvx96sr9l.code.run/comics?limit=${limit}&skip=${skip}&title=${search}`
         );
 
         setData(response.data);

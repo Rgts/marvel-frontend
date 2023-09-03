@@ -25,7 +25,7 @@ const Characters = () => {
         const skip = currentPage * itemsPerPage;
         const limit = 100;
         const response = await axios.get(
-          `http://localhost:3000/characters?limit=${limit}&skip=${skip}&name=${search}`
+          `https://site--marvel-backend--v2szvx96sr9l.code.run/characters?limit=${limit}&skip=${skip}&name=${search}`
         );
 
         console.log(response.data);
