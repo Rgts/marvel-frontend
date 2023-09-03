@@ -428,7 +428,8 @@ ul.react-paginate li.disabled a {
     height: 100%;
     font-size: 11px;
   }
+
   .flip-zone {
-    width: 47%;
+    width: 40%;
   }
 }
