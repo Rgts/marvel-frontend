@@ -48,7 +48,7 @@ const Comics = () => {
     <>
       <SearchBar search={search} setSearch={setSearch} />
       <main>
-        <div className="container flex flex-start-start flex-wrap flex-gap-20 padding-40-20">
+        <div className="container flex flex-between-start flex-wrap flex-gap-20 padding-40-20">
           {data.results.map((comic) => {
             return <CardComic key={comic._id} comic={comic} favorite={"add"} />;
           })}

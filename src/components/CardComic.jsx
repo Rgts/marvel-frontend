@@ -29,11 +29,6 @@ const CardComic = ({ comic, favorite }) => {
       >
         <div className="comic-name hide-on-hover">{comic.title}</div>
 
-        {comic.description && (
-          <div className="flip-info hide-on-hover">
-            Flip to learn more {">>"}
-          </div>
-        )}
         <div className="comic-description show-on-hover">
           {comic.description}
         </div>

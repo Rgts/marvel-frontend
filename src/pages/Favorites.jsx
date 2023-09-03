@@ -33,7 +33,7 @@ const Favorites = () => {
     <>
       {/* <SearchBar search={search} setSearch={setSearch} /> */}
       <main>
-        <div className="container flex flex-start-start flex-wrap flex-gap-20 padding-40-20">
+        <div className="container flex flex-between-start flex-wrap flex-gap-20 padding-40-20">
           {/* .slice(,) is for pagination in React-pagination */}
           {data.slice(startIndex, endIndex).map((comic) => {
             const imgUrl =
@@ -49,6 +49,8 @@ const Favorites = () => {
             pageCount={Math.ceil(data.length / itemsPerPage)}
             onPageChange={(event) => setCurrentPage(event.selected)}
             className="react-paginate"
+            previousLabel={"<"}
+            nextLabel={">"}
           />
         </div>
       </main>
