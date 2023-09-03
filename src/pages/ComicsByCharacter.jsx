@@ -26,10 +26,13 @@ const ComicsByCharacter = () => {
   }, []);
 
   return isLoading ? (
-    <span>En cours de chargement</span>
+    <main className="container padding-40-20">
+      <i className="fa-solid fa-spinner fa-spin"></i> En cours de chargement
+    </main>
   ) : (
     <>
       <main>
+        <h1 className="container">Comics with {data.name} </h1>
         <div className="container flex flex-start-start flex-wrap flex-gap-20 padding-40-20">
           {data.comics.map((comic) => {
             return <CardComic key={comic._id} comic={comic} favorite={"add"} />;

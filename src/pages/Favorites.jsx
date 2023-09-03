@@ -1,58 +1,76 @@
 // import du package axios
-import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom"; //rappel
-import ReactPaginate from "react-paginate";
-import SearchBar from "../components/SearchBar";
+import { useNavigate } from "react-router-dom";
 import CardComic from "../components/CardComic";
+import CardCharacter from "../components/CardCharacter";
 
 const Favorites = () => {
   const navigate = useNavigate(); // rappel
-  const [data, setData] = useState(
+  const [comics, setComics] = useState(
     JSON.parse(localStorage.getItem("comics")) || []
+  );
+  const [characters, setCharacters] = useState(
+    JSON.parse(localStorage.getItem("characters")) || []
   );
 
   const [isLoading, setIsLoading] = useState(true);
-  const [search, setSearch] = useState("");
-
-  //React paginate--
-  const [currentPage, setCurrentPage] = useState(0);
-  let itemsPerPage = 25;
-  let startIndex = currentPage * itemsPerPage;
-  let endIndex = startIndex + itemsPerPage;
-  //React paginate--
 
   useEffect(() => {
     setIsLoading(false);
-  }, [search]);
+  }, []);
 
   return isLoading ? (
-    <span>En cours de chargement</span>
+    <main className="container padding-40-20">
+      <i className="fa-solid fa-spinner fa-spin"></i> En cours de chargement
+    </main>
   ) : (
     <>
-      {/* <SearchBar search={search} setSearch={setSearch} /> */}
       <main>
-        <div className="container flex flex-between-start flex-wrap flex-gap-20 padding-40-20">
-          {/* .slice(,) is for pagination in React-pagination */}
-          {data.slice(startIndex, endIndex).map((comic) => {
-            const imgUrl =
-              comic.thumbnail.path + "." + comic.thumbnail.extension;
-            // console.log(comic._id);
-            return (
-              <CardComic key={comic._id} comic={comic} favorite={"remove"} />
-            );
-          })}
-        </div>
-        <div className="container">
-          <ReactPaginate
-            pageCount={Math.ceil(data.length / itemsPerPage)}
-            onPageChange={(event) => setCurrentPage(event.selected)}
-            className="react-paginate"
-            previousLabel={"<"}
-            nextLabel={">"}
-          />
-        </div>
+        <section>
+          <h1 className="container">Favorites comics</h1>
+          <div className="container flex flex-start-start flex-nowrap overflow-hidden overflow-x-scroll flex-gap-20 padding-40-20">
+            {comics.map((comic) => {
+              // console.log(comic._id);
+              return (
+                <CardComic key={comic._id} comic={comic} favorite={"remove"} />
+              );
+            })}
+          </div>
+          <div className="container">
+            {comics.length === 0 && (
+              <p>
+                It looks like you don't have any favorites yet ! Select them on
+                the thumbnails using the <i className="fa-regular fa-heart"></i>{" "}
+                button !
+              </p>
+            )}
+          </div>
+        </section>
+        <section>
+          <h1 className="container">Favorites characters</h1>
+
+          <div className="container flex flex-start-start flex-nowrap overflow-hidden overflow-x-scroll flex-gap-20 padding-40-20">
+            {characters.map((character) => {
+              // console.log(comic._id);
+              return (
+                <CardCharacter
+                  key={character._id}
+                  character={character}
+                  favorite={"remove"}
+                />
+              );
+            })}
+          </div>
+          <div className="container">
+            {characters.length === 0 && (
+              <p>
+                It looks like you don't have any favorites yet ! Select them on
+                the thumbnails using the <i className="fa-regular fa-heart"></i>{" "}
+                button !
+              </p>
+            )}
+          </div>
+        </section>
       </main>
     </>
   );

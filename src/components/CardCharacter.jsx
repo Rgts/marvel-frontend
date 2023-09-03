@@ -13,7 +13,7 @@ const CardCharacter = ({ character, favorite }) => {
     img = marvelLogoSquare;
   }
   return (
-    <article key={character._id} className="flip-zone">
+    <article key={character._id} className="flip-zone flex-shrink-0">
       {favorite === "add" && (
         <FavoriteAdd obj={character} storageKey={"characters"} />
       )}

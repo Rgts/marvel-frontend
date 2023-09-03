@@ -19,6 +19,16 @@ const Comics = () => {
   let itemsPerPage = 100;
   //React paginate--
 
+  const sortByTitle = (a, b) => {
+    if (a.title < b.title) {
+      return -1;
+    }
+    if (a.title > b.title) {
+      return 1;
+    }
+    return 0;
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -43,13 +53,16 @@ const Comics = () => {
   }, [search, currentPage]);
 
   return isLoading ? (
-    <main className="container">En cours de chargement</main>
+    <main className="container padding-40-20">
+      <i className="fa-solid fa-spinner fa-spin"></i> En cours de chargement
+    </main>
   ) : (
     <>
-      <SearchBar search={search} setSearch={setSearch} />
       <main>
+        <h1 className="container">Comics working</h1>
+        <SearchBar search={search} setSearch={setSearch} />
         <div className="container flex flex-between-start flex-wrap flex-gap-20 padding-40-20">
-          {data.results.map((comic) => {
+          {data.results.sort(sortByTitle).map((comic) => {
             return <CardComic key={comic._id} comic={comic} favorite={"add"} />;
           })}
         </div>

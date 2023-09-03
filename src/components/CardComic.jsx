@@ -14,7 +14,7 @@ const CardComic = ({ comic, favorite }) => {
     img = marvelCover;
   }
   return (
-    <article key={comic._id} className="flip-zone">
+    <article key={comic._id} className="flip-zone flex-shrink-0">
       {favorite === "add" && <FavoriteAdd obj={comic} storageKey={"comics"} />}
       {favorite === "remove" && (
         <FavoriteRemove obj={comic} storageKey={"comics"} />
