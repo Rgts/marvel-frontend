@@ -12,7 +12,14 @@ a {
   text-decoration: none;
 }
 h1 {
-  font-size: 30px;
+  font-size: 26px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+section:not(:first-of-type) {
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
 
 header {
@@ -79,7 +86,7 @@ button:hover {
 .container {
   width: 70vw;
   /* border: 1px solid red; */
-  margin: auto;
+  margin: 10px auto;
 }
 
 .flex {
@@ -138,6 +145,10 @@ button:hover {
 
 .padding-40-20 {
   padding: 40px 20px;
+}
+
+.padding-40-0 {
+  padding: 40px 0px;
 }
 
 .flip-zone {

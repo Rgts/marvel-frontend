@@ -39,7 +39,7 @@ const Characters = () => {
   }, [search, currentPage]);
 
   return isLoading ? (
-    <main className="container padding-40-20">
+    <main className="container padding-40-0">
       <i className="fa-solid fa-spinner fa-spin"></i> En cours de chargement
     </main>
   ) : (
@@ -48,8 +48,7 @@ const Characters = () => {
         <h1 className="container">Characters</h1>
         <SearchBar search={search} setSearch={setSearch} />
 
-        <div className="container flex flex-between-start flex-wrap flex-gap-20 padding-40-20">
-          {/* .slice(,) is for pagination in React-pagination */}
+        <div className="container flex flex-between-start flex-wrap flex-gap-20 padding-40-0">
           {data.results.map((character) => {
             // console.log(character._id);
             return (

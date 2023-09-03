@@ -20,7 +20,7 @@ const Favorites = () => {
   }, []);
 
   return isLoading ? (
-    <main className="container padding-40-20">
+    <main className="container padding-40-0">
       <i className="fa-solid fa-spinner fa-spin"></i> En cours de chargement
     </main>
   ) : (
@@ -28,20 +28,18 @@ const Favorites = () => {
       <main>
         <section>
           <h1 className="container">Favorites comics</h1>
-          <div className="container flex flex-start-start flex-nowrap overflow-hidden overflow-x-scroll flex-gap-20 padding-40-20">
+          <div className="container flex flex-start-start flex-nowrap overflow-hidden overflow-x-scroll flex-gap-20 padding-40-0">
             {comics.map((comic) => {
               // console.log(comic._id);
               return (
                 <CardComic key={comic._id} comic={comic} favorite={"remove"} />
               );
             })}
-          </div>
-          <div className="container">
             {comics.length === 0 && (
               <p>
-                It looks like you don't have any favorites yet ! Select them on
-                the thumbnails using the <i className="fa-regular fa-heart"></i>{" "}
-                button !
+                It looks like you don't have any comics in your favorites yet !
+                Use the <i className="fa-regular fa-heart"></i> button to select
+                !
               </p>
             )}
           </div>
@@ -49,7 +47,7 @@ const Favorites = () => {
         <section>
           <h1 className="container">Favorites characters</h1>
 
-          <div className="container flex flex-start-start flex-nowrap overflow-hidden overflow-x-scroll flex-gap-20 padding-40-20">
+          <div className="container flex flex-start-start flex-nowrap overflow-hidden overflow-x-scroll flex-gap-20 padding-40-0">
             {characters.map((character) => {
               // console.log(comic._id);
               return (
@@ -60,14 +58,13 @@ const Favorites = () => {
                 />
               );
             })}
-          </div>
-          <div className="container">
+
             {characters.length === 0 && (
-              <p>
-                It looks like you don't have any favorites yet ! Select them on
-                the thumbnails using the <i className="fa-regular fa-heart"></i>{" "}
-                button !
-              </p>
+              <div>
+                It looks like you don't have any characters in your favorites
+                yet ! Use the <i className="fa-regular fa-heart"></i> button to
+                select !
+              </div>
             )}
           </div>
         </section>
