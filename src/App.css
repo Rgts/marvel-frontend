@@ -70,7 +70,7 @@ header button {
 main {
   margin-top: 30px;
   min-height: 100vh;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 button:hover {
@@ -214,23 +214,12 @@ button:hover {
   font-size: 10px;
   color: lightgray;
   height: 3em;
-  /* overflow: hidden; */
-  /* border: 1px solid white; */
-  /* border-radius: 10px; */
   text-align: center;
-  /* vertical-align: middle; */
-  /* padding: 5px 0px; */
-  /* border-left: 10px solid red;
-  border-right: 10px solid red; */
   background-color: inherit;
   position: absolute;
-  /* transform: rotate(-45deg); */
   top: 50%;
   left: calc(-50% + 1.2em);
   rotate: -90deg;
-  /* left: 10px; */
-  /* transform: rotate(-90deg); */
-  /* translate: -50% 200%; */
   margin: auto auto;
 }
 
@@ -364,7 +353,7 @@ ul.react-paginate {
 
 ul.react-paginate li a {
   border-radius: 7px;
-  padding: 0.1rem 0.7rem;
+  padding: 0.1rem 0.6rem;
   border: red 1px solid;
   cursor: pointer;
 }
