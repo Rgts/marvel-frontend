@@ -25,7 +25,8 @@ const CardCharacter = ({ character, favorite }) => {
         className="link-from-character-to-comics"
         onClick={() => navigate(`/comics/${character._id}`)}
       >
-        <i className="fa-solid fa-book"></i>
+        comics
+        {/* <i className="fa-solid fa-book"></i> */}
       </div>
       <div className="character-card">
         <div className="character-name hide-on-hover">{character.name}</div>

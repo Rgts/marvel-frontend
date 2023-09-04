@@ -26,10 +26,16 @@ const FavoriteAdd = ({ obj, storageKey }) => {
 
   return (
     // Add and display check at click (full css)
-    <label className="favorite" onClick={() => handleFavorite(obj, storageKey)}>
+    // <label className="favorite" onClick={() => handleFavorite(obj, storageKey)}>
+    //   <i className="fa-regular fa-heart"></i>
+    //   <input type="button" className="scale-on-click" value="&#x2713;" />
+    // </label>
+    <button
+      className="favorite-button"
+      onClick={() => handleFavorite(obj, storageKey)}
+    >
       <i className="fa-regular fa-heart"></i>
-      <input type="button" className="scale-on-click" value="&#x2713;" />
-    </label>
+    </button>
   );
 };
 

@@ -20,10 +20,13 @@ const FavoriteRemove = ({ obj, storageKey }) => {
 
   return (
     // Add and display check at click (full css)
-    <label className="favorite" onClick={() => handleFavorite(obj, storageKey)}>
+
+    <button
+      className="favorite-button"
+      onClick={() => handleFavorite(obj, storageKey)}
+    >
       <i className="fa-regular fa-trash-can"></i>
-      <input type="button" className="scale-on-click" value="&#x2714;" />
-    </label>
+    </button>
   );
 };
 

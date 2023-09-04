@@ -225,12 +225,12 @@ button:hover {
   width: 100%;
   font-size: 12px;
   color: lightgray;
-  height: 4em;
+  height: 3em;
   overflow: hidden;
   /* border: 1px solid red; */
   /* border-radius: 10px; */
   text-align: center;
-  padding: 12px;
+  padding: 8px;
   background-color: inherit;
 }
 
@@ -248,7 +248,7 @@ button:hover {
   margin: auto auto;
 }
 
-.favorite {
+.favorite-button {
   /* font-size: 8px; */
   display: flex;
   justify-content: center;
@@ -261,15 +261,38 @@ button:hover {
   padding: 2px;
   background-color: lightgray;
   /* color: black; */
-  bottom: 2px;
-  right: 2px;
+  bottom: 8px;
+  right: 8px;
   z-index: 2;
   text-align: center;
 }
-.favorite > i {
+
+.favorite-button > i {
   background-color: transparent;
   color: black;
   position: absolute;
+}
+
+.favorite-button:active {
+  transform: scale(1.6);
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  15% {
+    transform: translateY(-200px);
+  }
+  50% {
+    transform: scale(0px);
+  }
+  75% {
+    transform: scale(-60px);
+  }
+  100% {
+    transform: scale(0px);
+  }
 }
 
 .link-from-character-to-comics {
@@ -278,18 +301,21 @@ button:hover {
   justify-content: center;
   align-items: center;
   position: absolute;
-  width: 30px;
+  /* width: 30px; */
   height: 30px;
-  border-radius: 50%;
+  border-radius: 8px;
   border: 1px solid black;
   padding: 2px;
   background-color: lightgray;
   /* color: black; */
-  bottom: 2px;
-  right: 32px;
+  bottom: 8px;
+  left: 8px;
   z-index: 2;
   text-align: center;
   cursor: pointer;
+  font-size: 80%;
+  padding: 0 10px;
+  color: black;
 }
 
 .link-from-character-to-comics > i {
